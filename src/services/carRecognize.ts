@@ -12,6 +12,7 @@ export const getRecognization = () => {
       result = xmlhttp.responseText;
     }
   };
+  console.log(result);
 
   xmlhttp.open("POST", "https://dev.sighthoundapi.com/v1/detections?type=face,person&faceOption=landmark,gender");
   xmlhttp.setRequestHeader("Content-type", "application/json");
