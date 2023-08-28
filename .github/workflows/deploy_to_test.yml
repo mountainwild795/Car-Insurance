@@ -1,9 +1,8 @@
 name: CI/CD Workflow
 on:
   push:
-    branches: ["master"]
-  pull_request:
-    branches: ["master"]
+    branches:
+      - main
 
 jobs:
   build:
