@@ -13,8 +13,6 @@ export const getRecognization = () => {
     }
   };
 
-  console.log(result);
-
   xmlhttp.open("POST", "https://dev.sighthoundapi.com/v1/detections?type=face,person&faceOption=landmark,gender");
   xmlhttp.setRequestHeader("Content-type", "application/json");
   xmlhttp.setRequestHeader("X-Access-Token", "YOUR-CLOUD-TOKEN");
