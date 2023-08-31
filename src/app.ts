@@ -1,12 +1,12 @@
 import "dotenv/config";
 import express, { NextFunction, Request, Response } from "express";
 import carRoutes from "./routes/cars";
-import morgan from "morgan";
+// import morgan from "morgan";
 import createHttpError, { isHttpError } from "http-errors";
 
 const app = express();
 
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 
 app.use(express.json());
 
