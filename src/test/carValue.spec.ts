@@ -59,6 +59,17 @@ describe("car value tests", () => {
 
     expect(actual).toBe(expected);
   });
+
+  it("POST /api/cars/carValue test-case-5", () => {
+    const model = "C200";
+    const year = 589;
+    const expected = "Invalid input: year should be between 1990 and 2023";
+
+    const result = getCarValue(model, year);
+    const actual = result.car_value;
+
+    expect(actual).toBe(expected);
+  });
 });
 
 describe("risk rating tests", () => {
