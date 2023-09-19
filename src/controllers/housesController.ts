@@ -6,10 +6,27 @@ import houseModel from "../models/house";
 
 export const getHouses: RequestHandler = async (req, res, next) => {
   try {
-    const houses = await houseModel.find(req.query).exec();
+    const houses = await houseModel.find({}).exec();
+    let result = [];
+    result = houses;
     console.log(houses);
+    if (Object.keys(req.query).length !== 0) {
+      const { name, country, address } = req.query;
+      console.log(req.query);
 
-    res.status(200).json(houses);
+      console.log(Boolean(country?.length !== 0));
+      console.log(Boolean(address?.length !== 0));
+      result = houses.filter((house) => {
+        return (
+          (name?.length !== 0 ? house?.name?.includes(name as string) : true) &&
+          (country?.length !== 0 ? house?.country?.includes(country as string) : true) &&
+          (address?.length !== 0 ? house?.address?.includes(address as string) : true)
+        );
+      });
+    }
+    console.log(result.length);
+
+    res.status(200).json(result);
     // res.send({ model: "civic", year: 2020 });
   } catch (error) {
     next(error);
